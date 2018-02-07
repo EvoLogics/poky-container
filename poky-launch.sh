@@ -14,7 +14,15 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 workdir=$1
 shift
-cd $workdir
+
+POKY=/work/poky
+if [ -f $POKY/oe-init-build-env ]; then
+    cd $POKY
+    source oe-init-build-env $workdir
+else
+    cd $workdir
+fi
+
 if [ $# -gt 0 ]; then
     exec bash -c "$*"
 else
