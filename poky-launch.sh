@@ -15,7 +15,7 @@
 workdir=$1
 shift
 
-POKY=/work/poky
+POKY=/work/sources
 if [ -f $POKY/oe-init-build-env ]; then
     cd $POKY
     source oe-init-build-env $workdir
